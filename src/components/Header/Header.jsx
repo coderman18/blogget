@@ -1,20 +1,22 @@
 import React from "react";
-import "./Header.module.css";
+import Layout from "../Layout";
+import Logo from "./Logo";
+import Search from "./Search";
+import Auth from "./Auth";
+import { Heading } from "./Heading/Heading";
+import styles from "./Header.module.css";
 
-export default function Header() {
+export default function Header(props) {
   return (
-    <div>
-      <header className="header">
-        <h1>Blogget</h1>
-        <nav>
-          <ul>
-            <li>Home</li>
-            <li>About</li>
-            <li>Contact</li>
-          </ul>
-        </nav>
-      </header>
-      <hr />
-    </div>
+    <header className={styles.header}>
+      <Layout>
+        <div className={styles.gridContainer}>
+          <Logo />
+          <Heading text="Главная" />
+          <Search />
+          <Auth auth={false} />
+        </div>
+      </Layout>
+    </header>
   );
 }
